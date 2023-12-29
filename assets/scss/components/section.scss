@@ -1,0 +1,106 @@
+// ========== Section General ========== //
+.section {
+  background: rgba(241, 241, 243, 0.50);
+
+  &__wrap {
+    padding: rem(64) 0;
+
+    @include respond-below(md) {
+      padding: rem(48) 0;
+    }
+  }
+
+  &__header {
+    &:not(:last-child) {
+      margin-bottom: rem(40);
+
+      @include respond-below(md) {
+        margin-bottom: rem(28);
+      }
+    }
+  }
+
+  &__title {
+    font-size: rem(35);
+    font-weight: 300;
+    color: #1B2A31;
+    text-align: center;
+
+    @include respond-below(md) {
+      font-size: rem(32);
+    }
+  }
+
+  &__body {
+    &:not(:last-child) {
+      margin-bottom: rem(32);
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: rem(16);
+    }
+  }
+
+  &__btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(12);
+  }
+
+  &__slider-wrap {
+    position: relative;
+  }
+}
+
+// ========== Section Hero ========== //
+.hero {
+  position: relative;
+  background-color: $color-black;
+  color: $color-white;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__wrap {
+    position: relative;
+    z-index: 20;
+    padding: rem(120) 0 0;
+  }
+
+  &__card {
+    margin-left: auto;
+    max-width: 550px;
+  }
+}
+
+// ========== Section Article ========== //
+.section-article {
+  background-color: $color-white;
+  color: $color-black;
+
+  &__wrap {
+    padding: rem(48) 0 rem(272);
+
+    @include respond-below(md) {
+      padding-bottom: rem(64);
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: rem(10);
+    margin-bottom: rem(42);
+
+    @include respond-below(md) {
+      margin-bottom: rem(32);
+    }
+  }
+}

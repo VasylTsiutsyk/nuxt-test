@@ -1,0 +1,14 @@
+// ===== REM ===== //
+@function rem($pixels, $context: $browser-context) {
+  @return #{calc($pixels / $context)}rem;
+}
+
+// ===== EM ===== //
+@function em($pixels, $context: $browser-context) {
+  @return #{calc($pixels / $context)}em;
+}
+
+// ===== PERCENTAGE ===== //
+@function percentage($number, $general) {
+  @return #{calc($number / $general)} * 100%;
+}

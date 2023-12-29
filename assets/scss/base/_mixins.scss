@@ -1,0 +1,169 @@
+/* stylelint-disable selector-no-vendor-prefix */
+
+@import '../_variables';
+
+// ===== MEDIA QUERIES ===== //
+@mixin respond-below($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+@mixin respond-above($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
+
+// ===== FONTS ===== //
+@mixin font($font_name, $file_name, $weight, $style) {
+  @font-face {
+    src:
+      url('../fonts/#{$file_name}.woff') format('woff'),
+      url('../fonts/#{$file_name}.woff2') format('woff2');
+    font-family: $font_name;
+    font-weight: #{$weight};
+    font-style: #{$style};
+    font-display: swap;
+  }
+}
+
+// ===== DISABLED MOB HOVER ===== //
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// ===== ADAPTIVE VALUE ===== //
+$max-width: 0; // Ширина полотна (в случае, если контент не имеет ограничений)
+$max-width-container: 1290; // Content max width
+
+@mixin adaptive-value($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if $type == 1 {
+    // If less than container
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$max-width-container + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width-container - 320}));
+    }
+  } @else if $type == 2 {
+    // If more then container
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$max-width-container + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+    }
+  } @else {
+    // Always
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$max-width - 320}));
+  }
+}
+
+/*
+// Mixin:
+@include adaptive-value("Property", start value, min value, type of adapt);
+// Example:
+@include adaptive-value("padding", 50, 20, 0);
+*/
+
+/* Line Height
+------------------------- */
+@mixin line-height($height: 16, $base: 16) {
+  line-height: ($height / $base);
+}
+
+/* Border Radius
+------------------------- */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+/* Opacity
+------------------------- */
+@mixin opacity($opacity) {
+  $opacity-ie: $opacity * 100;
+
+  opacity: $opacity;
+  filter: alpha(opacity=$opacity-ie); // IE8
+}
+
+/* Aspect Ratio
+------------------------- */
+@mixin responsive-ratio($x, $y) {
+  $padding: calc($y / $x) * 100%;
+
+  padding-bottom: $padding;
+}
+
+/* Text overflow
+------------------------- */
+@mixin text-truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Text Shorten
+------------------------- */
+@mixin text-shorten($linesNum: 1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @supports (-webkit-line-clamp: $linesNum ) {
+    /* stylelint-disable-next-line value-no-vendor-prefix */
+    display: -webkit-box;
+    overflow: hidden;
+    white-space: initial;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $linesNum;
+  }
+}
+
+/* Placeholders
+------------------------- */
+@mixin input-placeholder {
+  &.placeholder {
+    @content;
+  }
+
+  &::placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+}

@@ -1,0 +1,184 @@
+// ========== ICONS ========== //
+@font-face {
+  src: 
+    url('@/assets/fonts/icomoon.ttf') format('ttf'), 
+    url('@/assets/fonts/icomoon.woff') format('woff');
+  font-family: 'icomoon';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^='icon-'],
+[class*=' icon-'] {
+  display: inline-flex;
+  align-items: center;
+  font-family: inherit;
+
+  &::before {
+    font-family: 'icomoon' !important;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+    speak: never;
+  }
+}
+
+
+.icon-menu-arrow:before {
+  content: "\e900";
+}
+.icon-menu-lines:before {
+  content: "\e901";
+}
+.icon-search:before {
+  content: "\e90d";
+}
+.icon-discord:before {
+  content: "\e90a";
+}
+.icon-snapchat:before {
+  content: "\e922";
+}
+.icon-pencil:before {
+  content: "\e924";
+}
+.icon-spinner:before {
+  content: "\e984";
+}
+.icon-sphere:before {
+  content: "\e9c9";
+}
+.icon-link:before {
+  content: "\e9cb";
+}
+.icon-attachment:before {
+  content: "\e9cd";
+}
+.icon-loop2:before {
+  content: "\ea2e";
+}
+.icon-share:before {
+  content: "\ea82";
+}
+.icon-whatsapp:before {
+  content: "\ea93";
+}
+.icon-spotify:before {
+  content: "\ea94";
+}
+.icon-telegram:before {
+  content: "\ea95";
+}
+.icon-twitter:before {
+  content: "\ea96";
+}
+.icon-vine:before {
+  content: "\ea97";
+}
+.icon-youtube:before {
+  content: "\ea9d";
+}
+.icon-twitch:before {
+  content: "\ea9f";
+}
+.icon-vimeo:before {
+  content: "\eaa0";
+}
+.icon-dribbble:before {
+  content: "\eaa7";
+}
+.icon-behance:before {
+  content: "\eaa8";
+}
+.icon-steam:before {
+  content: "\eaac";
+}
+.icon-skype:before {
+  content: "\eac5";
+}
+.icon-reddit:before {
+  content: "\eac6";
+}
+.icon-linkedin:before {
+  content: "\eac9";
+}
+.icon-pinterest:before {
+  content: "\ead1";
+}
+.icon-arrow-down-left:before {
+  content: "\e919";
+}
+.icon-arrow-down-right:before {
+  content: "\e91a";
+}
+.icon-arrow-up-left:before {
+  content: "\e91c";
+}
+.icon-arrow-up-right:before {
+  content: "\e91d";
+}
+.icon-arrow-right-alt:before {
+  content: "\e921";
+}
+.icon-arrow-left-alt:before {
+  content: "\e92d";
+}
+.icon-arrow-down:before {
+  content: "\e92f";
+}
+.icon-arrow-up:before {
+  content: "\e930";
+}
+.icon-close:before {
+  content: "\e914";
+}
+.icon-copy:before {
+  content: "\e90c";
+}
+.icon-heart:before {
+  content: "\e90f";
+}
+.icon-bell:before {
+  content: "\e92e";
+}
+.icon-calendar:before {
+  content: "\e906";
+}
+.icon-clock:before {
+  content: "\e907";
+}
+.icon-map-pin:before {
+  content: "\e908";
+}
+.icon-check-circle-alt:before {
+  content: "\e90e";
+}
+.icon-check-square-alt:before {
+  content: "\e91b";
+}
+.icon-check:before {
+  content: "\e925";
+}
+.icon-info:before {
+  content: "\e926";
+}
+.icon-download:before {
+  content: "\e927";
+}
+.icon-chevron-right:before {
+  content: "\e929";
+}
+.icon-chevron-left:before {
+  content: "\e92a";
+}
+.icon-chevron-down:before {
+  content: "\e92b";
+}
+.icon-chevron-up:before {
+  content: "\e92c";
+}

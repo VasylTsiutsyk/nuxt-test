@@ -1,0 +1,142 @@
+// ========== BUTTONS ========== //
+.btn {
+  display: inline-block;
+  outline: none;
+  border: rem(1) solid $color-primary;
+  border-radius: 0;
+  padding: rem(12) rem(20);
+  background-color: $color-primary;
+  font-size: rem(16);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  color: $color-white;
+  cursor: pointer;
+  transition:
+    background-color $transition-duration-primary,
+    color $transition-duration-primary;
+
+  &:disabled,
+  &._disabled {
+    border-color: $color-grey;
+    background-color: $color-grey;
+    color: $color-black;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &:not(:disabled, ._disabled) {
+    @include hover {
+      background-color: transparent;
+      color: $color-primary;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 rem(2) $color-black;
+    }
+
+    &:active {
+      background-color: transparent;
+      color: $color-primary;
+    }
+  }
+
+  // &--sm {
+  //   padding: rem(8) rem(15);
+  // }
+
+  // &--lg {
+  //   padding: rem(15) rem(25);
+  // }
+}
+
+// ========== INPUTS ========== //
+.input {
+  input,
+  textarea {
+    appearance: none;
+    outline: none;
+    border: rem(1) solid $color-black;
+    border-radius: 0;
+    width: 100%;
+    padding: rem(16) rem(24);
+    background: none;
+    font-size: rem(16);
+    line-height: 1;
+    color: $color-black;
+    resize: none;
+    transition: border-color $transition-duration-primary;
+
+    @include input-placeholder {
+      color: inherit;
+    }
+
+    &:disabled,
+    &._disabled {
+      border-color: $color-grey;
+      background-color: rgba($color-grey, 0.75);
+      opacity: 0.8;
+      cursor: default;
+    }
+
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+
+    &:not(:disabled, ._disabled) {
+      @include hover {
+        border-color: $color-primary;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 rem(2) $color-black;
+      }
+
+      &:active {
+        border-color: $color-primary;
+      }
+    }
+  }
+}
+
+// ========== SELECT ========== //
+.select {
+  select {
+    outline: none;
+    border: rem(1) solid $color-black;
+    border-radius: 0;
+    width: 100%;
+    padding: rem(12) rem(10);
+    background: none;
+    font-size: rem(16);
+    line-height: 1;
+    color: $color-black;
+    transition: border-color $transition-duration-primary;
+
+    &:disabled,
+    &._disabled {
+      border-color: $color-grey;
+      background-color: rgba($color-grey, 0.75);
+      opacity: 0.8;
+      cursor: default;
+    }
+
+    &:not(:disabled, ._disabled) {
+      @include hover {
+        border-color: $color-primary;
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 rem(2) $color-black;
+      }
+
+      &:active {
+        border-color: $color-primary;
+      }
+    }
+  }
+}

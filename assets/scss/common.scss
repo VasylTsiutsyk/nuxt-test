@@ -1,0 +1,292 @@
+// ========== GLOBAL STYLES ========== //
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+  font-size: px($browser-context);
+
+  @include respond-below(md) {
+    font-size: 16px;
+  }
+}
+
+body {
+  padding-top: var(--header-height);
+  font-family: $font-family-primary;
+  font-size: $font-size-primary;
+  font-weight: $font-weight-primary;
+  line-height: $body-line-height;
+  transition: padding-top $transition-duration-primary;
+
+  &._loaded {
+    opacity: 1;
+    transition: opacity $transition-duration-long;
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $color-grey;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $color-primary;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+// avoid content moving on overflow: hidden
+.disable-scroll {
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+}
+
+// wrapper to prevent horizontal scroll
+// if you want use position: sticky; - need to remove // overflow: hidden // !!!
+.wrapper {
+  overflow: hidden;
+  min-height: 100vh;
+
+  &--visible {
+    @include respond-above(md) {
+      overflow: visible;
+    }
+  }
+}
+
+// container
+.container {
+  margin: 0 auto;
+  max-width: rem($container);
+  padding: 0 rem($mar);
+
+  &--sm {
+    max-width: rem($container-sm);
+  }
+
+  &--lg {
+    max-width: rem($container-lg);
+  }
+}
+
+// section offset, imit container
+.offset-container {
+  padding-left: max(rem($mar), calc((100% - rem($content-width)) / 2));
+
+  @include respond-below(md) {
+    padding: 0 rem($mar);
+  }
+}
+
+/* Hiding class, making content visible only to screen readers but not visually */
+/* "sr" meaning "screen-reader" */
+.sr-only:not(:focus, :active) {
+  position: absolute;
+  clip-path: inset(50%);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  white-space: nowrap;
+  clip: rect(0 0 0 0);
+}
+
+// ========== TYPOGRAPHY ========== //
+.text-block {
+  color: #536773;
+  font-size: rem(18);
+  font-weight: 400;
+  line-height: 138.889%;
+
+  @include respond-below(md) {
+    font-size: rem(16);
+  }
+
+  ol,
+  ul {
+    li {
+      &:not(:last-child) {
+        margin-bottom: rem(20);
+      }
+    }
+  }
+
+  ul {
+    position: relative;
+    list-style: disc outside;
+    padding: rem(20) 0;
+    padding-left: rem(42);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-radius: rem(2);
+      width: rem(4);
+      height: 100%;
+      background-color: $color-blue;
+    }
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
+
+  mark {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  del {
+    background-color: #fbb;
+    text-decoration: line-through;
+  }
+
+  ins {
+    background-color: #d4fcbc;
+    text-decoration: none;
+  }
+
+  blockquote {
+    border-left: rem(3) solid $color-primary;
+    padding-left: rem(15);
+  }
+
+  > *:not(:last-child) {
+    margin-bottom: rem(28);
+
+    @include respond-below(md) {
+      margin-bottom: rem(16);
+    }
+  }
+}
+
+picture {
+  display: inline-block;
+
+  img {
+    vertical-align: middle;
+  }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: 700;
+  line-height: $heading-line-height;
+}
+
+h1,
+.h1 {
+  font-size: rem(96);
+
+  @include respond-below(xl) {
+    font-size: rem(80);
+  }
+}
+
+h2,
+.h2 {
+  font-size: rem(48);
+
+  @include respond-below(md) {
+    font-size: rem(42);
+  }
+
+  @include respond-below(sm) {
+    font-size: rem(32);
+  }
+}
+
+h3,
+.h3 {
+  font-size: rem(24);
+
+  @include respond-below(md) {
+    font-size: rem(20);
+  }
+}
+
+h4,
+.h4 {
+  font-size: rem(20);
+
+  @include respond-below(md) {
+    font-size: rem(18);
+  }
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
+}
+
+h6,
+.h6 {
+  font-size: 0.75rem;
+}
+
+// Pages List
+.pages-list {
+  padding-left: 1rem;
+
+  > li {
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      text-decoration: underline;
+      transition: color $transition-duration-primary;
+
+      @include hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+// Swiper Settings
+.swiper-wrapper {
+  padding: 0 0 rem(48);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  border-radius: rem(2);
+  width: rem(42) !important;
+  height: rem(42) !important;
+  background-color: $color-primary;
+  color: $color-white !important;
+
+  &::after {
+    font-size: rem(18) !important;
+    font-weight: 900 !important;
+    color: inherit !important;
+  }
+}
